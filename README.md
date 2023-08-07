@@ -1,10 +1,22 @@
 # Fibonacci-Sequence
 
-1.	Requirement: Generate the Fibonacci sequence up to a given number.
-2.	Inputs: A positive integer.
-3.	Output: The Fibonacci sequence up to the given number.
-4.	Test Cases:
-●	Input: 10 | Output: [0, 1, 1, 2, 3, 5, 8]
-●	Input: 5 | Output: [0, 1, 1, 2, 3]
-●	Input: 1 | Output: [0, 1]
-●	Input: 20 | Output: [0, 1, 1, 2, 3, 5, 8, 13]
+def generate_fibonacci(limit):
+    fibonacci_sequence = [0, 1]  # Initialize with the first two Fibonacci numbers
+    
+    while True:
+        next_number = fibonacci_sequence[-1] + fibonacci_sequence[-2]
+        if next_number > limit:
+            break
+        fibonacci_sequence.append(next_number)
+    
+    return fibonacci_sequence
+
+# Input from the user
+limit = int(input("Enter a positive integer: "))
+
+if limit <= 0:
+    print("Please enter a positive integer.")
+else:
+    fibonacci_result = generate_fibonacci(limit)
+    print("Fibonacci sequence up to", limit, ":", fibonacci_result)
+
